@@ -40,7 +40,7 @@ function refreshLibrary() {
     let notes = row.insertCell(4);
     let remove = row.insertCell(5);
 
-    listNumber.textContent = count + 1;
+    listNumber.textContent = '';
     title.textContent = myLibrary[count].title;
     author.textContent = myLibrary[count].author;
 
@@ -98,10 +98,10 @@ if (libraryTable.addEventListener) {
 
 function handler(e) {
     if (e.target.type === 'checkbox') {
-        let row = e.target.parentNode.parentNode.cells[0].innerHTML - 1;
+        let row = e.target.parentNode.parentNode.rowIndex - 1;
         myLibrary[row].changeRead(row);
     } else if (e.target.innerHTML === "remove") {
-        let count = e.target.parentNode.cells[0].innerHTML - 1;
+        let count = e.target.parentNode.rowIndex - 1;
         myLibrary.splice(count, 1);
         libraryTable.deleteRow(count);
     }

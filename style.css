@@ -43,6 +43,23 @@ body {
     font-size: 0.8rem;
 }
 
+tbody
+{
+    counter-reset: rowNumber;
+}
+
+tbody tr > td:first-child
+{
+    counter-increment: rowNumber;
+}
+
+tbody tr td:first-child::before
+{
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+
 td,
 th {
     border: 1px solid rgb(190, 190, 190);
