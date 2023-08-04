@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>TOP - Library Project</title>
+</head>
+
+<body>
+
+    <div class="libraryContainer">
+
+        <div class="header">
+            <h1>my library</h1>
+        </div>
+        <div class="buttons">
+            <button id="addBook" type="button" onclick="openForm()">+ new book</button>
+        </div>
+        <div class="libraryBody">
+            <table>
+                <caption>all the books you like and don't like :)</caption>
+
+                <thead>
+                    <tr>
+                        <td width="2%"></td>
+                        <td width="25%">Title</td>
+                        <td width="25%">Author</td>
+                        <td width="3%">Read</td>
+                        <td width="40%">notes</td>
+                        <td width="5%"></td>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                    <h1>add book to library</h1>
+
+                    <label for="title"><b>What is the Title of the book?</b></label>
+                    <input type="text" placeholder="Title" name="title" id="title" required>
+
+                    <label for="author"><b>Author Name?</b></label>
+                    <input type="text" placeholder="Author" name="author" id="author" required>
+                    <div>
+                        <label for="read"><b>did you read this book?</b></label>
+                        <input type="checkbox" name="read" id="read">
+                    </div>
+                    <div class="notesLabel">
+                    <label for="notes"><b>any notes?</b></label>
+                </div>
+                    <textarea rows="5" cols="33" name="notes" id="notes"> </textarea>
+                
+                    <button type="submit" class="btn submit">Submit</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
