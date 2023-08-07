@@ -53,6 +53,7 @@ function refreshLibrary() {
 
     notes.textContent = myLibrary[count].notes;
     remove.innerHTML = "remove";
+    remove.classList.add('remove');
 }
 
 function openForm() {

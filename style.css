@@ -162,3 +162,12 @@ thead {
 .readYes {
     background-color: #04aa6d80 !important;
 }
+
+.remove:hover {
+    font-weight: bold;
+    background-color: rgba(255, 0, 0, 0.493);
+}
+
+.remove:hover::after {
+    content: '?';
+}
