@@ -110,8 +110,8 @@ thead {
 .form-container input[type=text],
 .form-container textarea {
     width: 90%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
+    padding: 10px;
+    margin: 5px 0 17px 0;
     border: none;
     background: #f1f1f1;
 }
@@ -149,6 +149,10 @@ thead {
 .form-container .btn:hover,
 .open-button:hover {
     opacity: 1;
+}
+
+.readLabel {
+    padding-top: 10px;
 }
 
 .notesLabel {

@@ -28,8 +28,9 @@
                         <td width="2%"></td>
                         <td width="25%">Title</td>
                         <td width="25%">Author</td>
+                        <td width="5%">Pages</td>
                         <td width="3%">Read</td>
-                        <td width="40%">notes</td>
+                        <td width="35%">notes</td>
                         <td width="5%"></td>
                     </tr>
                 </thead>
@@ -47,14 +48,17 @@
 
                     <label for="author"><b>Author Name?</b></label>
                     <input type="text" placeholder="Author" name="author" id="author" required>
-                    <div>
+
+                    <label for="pages"><b>book pages?</b></label>
+                    <input type="number" placeholder="1-1000-infinite?" name="pages" id="pages" required>
+                    <div class="readLabel" >
                         <label for="read"><b>did you read this book?</b></label>
                         <input type="checkbox" name="read" id="read">
                     </div>
                     <div class="notesLabel">
                     <label for="notes"><b>any notes?</b></label>
                 </div>
-                    <textarea rows="5" cols="33" name="notes" id="notes"> </textarea>
+                    <textarea rows="9" cols="33" name="notes" id="notes"> </textarea>
                 
                     <button type="submit" class="btn submit">Submit</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>

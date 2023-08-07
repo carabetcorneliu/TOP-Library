@@ -7,15 +7,16 @@ let myLibrary = [];
 const libraryTable = document.querySelector('tbody');
 
 //
-function Book(title, author, read, notes) {
+function Book(title, author, pages, read, notes) {
     this.title = title;
     this.author = author;
+    this.pages = pages;
     this.read = read;
     this.notes = notes;
 }
 
 Book.prototype.changeRead = function (count) {
-    let colorChange = libraryTable.rows[count].cells[3];
+    let colorChange = libraryTable.rows[count].cells[4];
 
     if (!this.read) {
         this.read = true;
@@ -36,13 +37,15 @@ function refreshLibrary() {
     let listNumber = row.insertCell(0);
     let title = row.insertCell(1);
     let author = row.insertCell(2);
-    let read = row.insertCell(3);
-    let notes = row.insertCell(4);
-    let remove = row.insertCell(5);
+    let pages = row.insertCell(3);
+    let read = row.insertCell(4);
+    let notes = row.insertCell(5);
+    let remove = row.insertCell(6);
 
     listNumber.textContent = '';
     title.textContent = myLibrary[count].title;
     author.textContent = myLibrary[count].author;
+    pages.textContent = myLibrary[count].pages;
 
     let checkbox = document.createElement('input');
     checkbox.type = "checkbox";
@@ -69,6 +72,7 @@ function closeForm() {
 function cleanForm() {
     document.getElementById("title").value = "";
     document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
     document.getElementById("read").checked = false;
     document.getElementById("notes").value = "";
 }
@@ -79,10 +83,11 @@ submitForm.addEventListener("submit", addBookToLibrary, false);
 function addBookToLibrary(event) {
     let title = document.getElementById('title').value;
     let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
     let read = document.getElementById('read').checked;
     let notes = document.getElementById('notes').value;
 
-    const book = new Book(title, author, read, notes);
+    const book = new Book(title, author, pages, read, notes);
     myLibrary.push(book);
 
     refreshLibrary();
