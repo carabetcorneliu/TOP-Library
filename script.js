@@ -6,29 +6,55 @@ let myLibrary = [];
 
 const libraryTable = document.querySelector('tbody');
 
-//
-function Book(title, author, pages, read, notes) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.notes = notes;
+// //
+// function Book(title, author, pages, read, notes) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     this.notes = notes;
+// }
+
+// Book.prototype.changeRead = function (count) {
+//     let colorChange = libraryTable.rows[count].cells[4];
+
+//     if (!this.read) {
+//         this.read = true;
+//         colorChange.classList.remove("readYes");
+//         colorChange.classList.add("readNot");
+//     }
+//     else {
+//         this.read = false;
+//         colorChange.classList.remove("readNot");
+//         colorChange.classList.add("readYes");
+//     }
+// }
+
+class Book {
+    constructor(title, author, pages, read, notes) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.notes = notes;
+    }
+
+    changeRead(count) {
+        let colorChange = libraryTable.rows[count].cells[4];
+
+        if (!this.read) {
+            this.read = true;
+            colorChange.classList.remove("readYes");
+            colorChange.classList.add("readNot");
+        }
+        else {
+            this.read = false;
+            colorChange.classList.remove("readNot");
+            colorChange.classList.add("readYes");
+        }
+    }
 }
 
-Book.prototype.changeRead = function (count) {
-    let colorChange = libraryTable.rows[count].cells[4];
-
-    if (!this.read) {
-        this.read = true;
-        colorChange.classList.remove("readYes");
-        colorChange.classList.add("readNot");
-    }
-    else {
-        this.read = false;
-        colorChange.classList.remove("readNot");
-        colorChange.classList.add("readYes");
-    }
-}
 
 function refreshLibrary() {
     let count = libraryTable.rows.length;
