@@ -107,11 +107,11 @@ const submitForm = document.querySelector("#myForm");
 submitForm.addEventListener("submit", addBookToLibrary, false);
 
 function addBookToLibrary(event) {
-    let title = document.getElementById('title').value;
-    let author = document.getElementById('author').value;
-    let pages = document.getElementById('pages').value;
-    let read = document.getElementById('read').checked;
-    let notes = document.getElementById('notes').value;
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').checked;
+    const notes = document.getElementById('notes').value;
 
     const book = new Book(title, author, pages, read, notes);
     myLibrary.push(book);
@@ -121,21 +121,54 @@ function addBookToLibrary(event) {
     event.preventDefault();
 }
 
-//event listener for checkbox and remove
+// event listener for checkbox and remove
 if (libraryTable.addEventListener) {
     libraryTable.addEventListener('click', handler, false);
 } else if (libraryTable.atachEvent) {
     libraryTable.atachEvent('onclick', handler);
 }
 
-function handler(e) {
-    if (e.target.type === 'checkbox') {
-        let row = e.target.parentNode.parentNode.rowIndex - 1;
+function handler(event) {
+    if (event.target.type === 'checkbox') {
+        const row = event.target.parentNode.parentNode.rowIndex - 1;
         myLibrary[row].changeRead(row);
-    } else if (e.target.innerHTML === "remove") {
-        let count = e.target.parentNode.rowIndex - 1;
+    } else if (event.target.innerHTML === "remove") {
+        const count = event.target.parentNode.rowIndex - 1;
         myLibrary.splice(count, 1);
         libraryTable.deleteRow(count);
     }
 }
-//end event listener for checkbox and remove
+// end event listener for checkbox and remove
+
+// JS validation form
+const validateForm = (() => {
+    let title = document.getElementById('title');
+    let author = document.getElementById('author');
+    let pages = document.getElementById('pages');
+    let read = document.getElementById('read');
+    let notes = document.getElementById('notes');
+
+    if (title.validity.valueMissing) {
+        title.setCustomValidity('Book title is required');
+        title.classList.add('error');
+    } else {
+        title.setCustomValidity('');
+        title.classList.remove('error');
+    }
+    if (author.validity.valueMissing) {
+        author.setCustomValidity('Book author is required');
+        author.classList.add('error');
+    } else {
+        author.setCustomValidity('');
+        author.classList.add('error');
+    }
+    if (pages.validity.valueMissing) {
+        pages.setCustomValidity('How many pages does the book have?');
+        pages.classList.add('error');
+    } else {
+        pages.setCustomValidity('');
+        pages.classList.add('error');
+    }
+});
+
+

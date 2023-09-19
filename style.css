@@ -27,6 +27,7 @@ body {
     font-weight: bold;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .libraryBody {
@@ -36,25 +37,21 @@ body {
 .libraryBody>table {
     max-width: 100%;
 
-
     border-collapse: collapse;
     border: 2px solid rgb(200, 200, 200);
     letter-spacing: 1px;
     font-size: 0.8rem;
 }
 
-tbody
-{
+tbody {
     counter-reset: rowNumber;
 }
 
-tbody tr > td:first-child
-{
+tbody tr > td:first-child {
     counter-increment: rowNumber;
 }
 
-tbody tr td:first-child::before
-{
+tbody tr td:first-child::before {
     content: counter(rowNumber);
     min-width: 1em;
     margin-right: 0.5em;
@@ -116,6 +113,13 @@ thead {
     background: #f1f1f1;
 }
 
+.form-container input[type=number] {
+    padding: 10px;
+    margin: 5px 0 17px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
 /* Remove resize for textarea */
 .form-container textarea {
     resize: none;
@@ -123,6 +127,7 @@ thead {
 
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus,
+.form-container input[type=number]:focus,
 .form-container textarea:focus {
     background-color: #ddd;
     outline: none;
@@ -168,10 +173,15 @@ thead {
 }
 
 .remove:hover {
-    font-weight: bold;
+    /* font-weight: bold; */
     background-color: rgba(255, 0, 0, 0.493);
 }
 
 .remove:hover::after {
+    font-weight: bold;
     content: '?';
+}
+
+.error {
+    border-right: 5px solid red!important;
 }

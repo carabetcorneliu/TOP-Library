@@ -44,13 +44,13 @@
                     <h1>add book to library</h1>
 
                     <label for="title"><b>What is the Title of the book?</b></label>
-                    <input type="text" placeholder="Title" name="title" id="title" required>
+                    <input type="text" placeholder="Title" name="title" id="title" class="error" required>
 
                     <label for="author"><b>Author Name?</b></label>
-                    <input type="text" placeholder="Author" name="author" id="author" required>
+                    <input type="text" placeholder="Author" name="author" id="author" class="error" required>
 
                     <label for="pages"><b>book pages?</b></label>
-                    <input type="number" placeholder="1-1000-infinite?" name="pages" id="pages" required>
+                    <input type="number" placeholder="1-1000-infinite?" name="pages" id="pages" class="error" required>
                     <div class="readLabel" >
                         <label for="read"><b>did you read this book?</b></label>
                         <input type="checkbox" name="read" id="read">
@@ -60,7 +60,7 @@
                 </div>
                     <textarea rows="9" cols="33" name="notes" id="notes"> </textarea>
                 
-                    <button type="submit" class="btn submit">Submit</button>
+                    <button type="submit" class="btn submit" onclick="validateForm()">Submit</button>
                     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                 </form>
             </div>
