@@ -1,8 +1,8 @@
-let myLibrary = [['The Hobbit', 'J.R.R. Toldien', false, ''],
-['Lord of The Rings', 'J.R.R. Tolkien', true, 'nice book'],
-['Harry Potter', 'J.K. Rowling', true, 'gogo HARRY']];
+// let myLibrary = [['The Hobbit', 'J.R.R. Toldien', 310, false, ''],
+// ['Lord of The Rings', 'J.R.R. Tolkien', 1216, true, 'nice book'],
+// ['Harry Potter', 'J.K. Rowling', 3407, true, 'gogo HARRY']];
 
-// let myLibrary = [];
+let myLibrary = [];
 
 const libraryTable = document.querySelector('tbody');
 
@@ -171,4 +171,18 @@ const validateForm = (() => {
     }
 });
 
+const populateLibrary = (() => {
+    const newBooks = [['The Hobbit', 'J.R.R. Toldien', 310, false, ''],
+                    ['Deception Point', 'Dan Brown', 585, true, 'unputdownable'],
+                    ['Lord of The Rings', 'J.R.R. Tolkien', 1216, false, 'nice book'],
+                    ['Harry Potter', 'J.K. Rowling', 3407, false, 'gogo HARRY'],
+                    ['The Da Vinci Code', 'Dan Brown', 489, true, 'symbolisms, mysterys'],
+                    ['The Alchemist', 'Paulo Coelho', 208, true, 'so boring'],
+                    ['The Great Gatsby', 'F. Scott Fitzgerald', 180, false, '']];
 
+    for (let i = 0; i < newBooks.length; i++) {
+        const book = new Book(newBooks[i][0], newBooks[i][1], newBooks[i][2], newBooks[i][3], newBooks[i][4]);
+        myLibrary.push(book);
+        refreshLibrary();
+    }
+})();
