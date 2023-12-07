@@ -1,8 +1,8 @@
-// let myLibrary = [['The Hobbit', 'J.R.R. Toldien', false, ''],
-// ['Lord of The Rings', 'J.R.R. Tolkien', true, 'nice book'],
-// ['Harry Potter', 'J.K. Rowling', true, 'gogo HARRY']];
+let myLibrary = [['The Hobbit', 'J.R.R. Toldien', false, ''],
+['Lord of The Rings', 'J.R.R. Tolkien', true, 'nice book'],
+['Harry Potter', 'J.K. Rowling', true, 'gogo HARRY']];
 
-let myLibrary = [];
+// let myLibrary = [];
 
 const libraryTable = document.querySelector('tbody');
 
